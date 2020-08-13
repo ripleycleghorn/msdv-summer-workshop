@@ -3,16 +3,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Assignment 6</title>
-    
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Limelight&family=Roboto&display=swap');
+    </style>
 </head>
 <body>
     <div id="app">
-        <input v-model="search">
+        <h1>Studio Ghibli Movies</h1>
+        <div class="search-bar">
+            <input v-model="search" placeholder="Search movie titles here">
+        </div>
+        <br>
         <div>
-            <div v-for="(title, index) in methodsItems(title)">
+            <div v-for="movie in methodsItems(title)">
 
-                {{ title }}
-                {{ description[index] }}
+                <div class="movie-title">{{ movie.title }}</div>
+                <br>
+                <div class="movie-description">{{ movie.description }}</div>
     
             </div>
             <hr>
@@ -30,13 +38,25 @@
             data: {
                 search: "",
                 title: ['Castle in the Sky', 'Grave of the Fireflies', 'My Neighbor Totoro', 'Kikis Delivery Service'],
-                description: ['Description 1', 'Description 2', 'Description 3', 'Description 4'],
+                description: 
+                ['The orphan Sheeta inherited a mysterious crystal that links her to the mythical sky-kingdom of Laputa. With the help of resourceful Pazu and a rollicking band of sky pirates, she makes her way to the ruins of the once-great civilization. Sheeta and Pazu must outwit the evil Muska, who plans to use Laputas science to make himself ruler of the world.', 
+                
+                'In the latter part of World War II, a boy and his sister, orphaned when their mother is killed in the firebombing of Tokyo, are left to survive on their own in what remains of civilian life in Japan. The plot follows this boy and his sister as they do their best to survive in the Japanese countryside, battling hunger, prejudice, and pride in their own quiet, personal battle.',
+
+                'Two sisters move to the country with their father in order to be closer to their hospitalized mother, and discover the surrounding trees are inhabited by Totoros, magical spirits of the forest. When the youngest runs away from home, the older sister seeks help from the spirits to find her.',
+
+                'A young witch, on her mandatory year of independent life, finds fitting into a new community difficult while she supports herself by running an air courier service.'],
 
             },
             methods: {
                 methodsItems: function (items) {
-                    return items.filter((i) => {
-                        return i.toLowerCase().match(this.search.toLowerCase());
+                    return items.map((text, index) => {
+                        return {
+                            "title": text,
+                            "description": this.description[index]
+                        }
+                    }).filter((i) => {
+                        return i.title.toLowerCase().match(this.search.toLowerCase());
                     });
                 }
             }
