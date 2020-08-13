@@ -1,0 +1,60 @@
+/*
+Color Palette
+
+#36413E - Dark Grey
+#5D5E60 - Davys Grey
+#8D8D92 - Taupe Grey
+#BEB2C8 - Thistle
+#D7D6D6 - Light Grey
+#F7FFF7 - Almost White
+*/
+
+/*
+Global Styles
+*/
+header {
+    background:#5D5E60;
+    color: #F7FFF7;
+}
+main {
+    background: #D7D6D6;
+}
+body {
+    background: #BEB2C8;
+}
+a {
+    color: #F7FFF7;
+    background: #2F3061;
+    text-decoration: none;
+    padding: 8px;
+    border-radius: 4px;
+
+}
+a:hover {
+    background: rgb(47, 48, 97, 80%);
+}
+
+.center {
+    width: 500px;
+    margin: 0 auto;
+}
+
+
+/*
+About Me
+*/
+
+
+/*
+Experience
+*/
+
+
+/*
+Hopes
+*/
+
+
+/*
+Work
+*/

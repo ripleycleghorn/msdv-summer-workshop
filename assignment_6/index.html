@@ -1,0 +1,47 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 6</title>
+    
+</head>
+<body>
+    <div id="app">
+        <input v-model="search">
+        <div>
+            <div v-for="(title, index) in methodsItems(title)">
+
+                {{ title }}
+                {{ description[index] }}
+    
+            </div>
+            <hr>
+            
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                search: "",
+                title: ['Castle in the Sky', 'Grave of the Fireflies', 'My Neighbor Totoro', 'Kikis Delivery Service'],
+                description: ['Description 1', 'Description 2', 'Description 3', 'Description 4'],
+
+            },
+            methods: {
+                methodsItems: function (items) {
+                    return items.filter((i) => {
+                        return i.toLowerCase().match(this.search.toLowerCase());
+                    });
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
